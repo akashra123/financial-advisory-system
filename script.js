@@ -8,6 +8,7 @@ const loginForm = document.querySelector('#login-form');
 const loginMessage = document.querySelector('#login-message');
 const passwordInput = document.querySelector('#login-password');
 const logoutButton = document.querySelector('#logout-button');
+const dashboardMain = document.querySelector('main');
 
 const showDashboard = () => document.body.classList.add('logged-in');
 if (localStorage.getItem('finrag-session') === 'remembered') showDashboard();
@@ -68,8 +69,25 @@ form.addEventListener('submit', (event) => {
 
 menuToggle.addEventListener('click', () => sidebar.classList.toggle('open'));
 document.querySelectorAll('.nav-item').forEach((item) => {
-  item.addEventListener('click', () => sidebar.classList.remove('open'));
+  item.addEventListener('click', (event) => {
+    const view = item.dataset.view;
+    if (!view) return;
+    event.preventDefault();
+    dashboardMain.className = `view-${view}`;
+    document.querySelectorAll('.nav-item').forEach((navItem) => navItem.classList.remove('active'));
+    item.classList.add('active');
+    window.location.hash = view;
+    sidebar.classList.remove('open');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
 });
+
+const initialView = ['research', 'watchlist'].includes(window.location.hash.slice(1)) ? window.location.hash.slice(1) : 'overview';
+dashboardMain.className = `view-${initialView}`;
+if (initialView !== 'overview') {
+  document.querySelector(`.nav-item[data-view="${initialView}"]`).classList.add('active');
+  document.querySelector('.nav-item[data-view="overview"]').classList.remove('active');
+}
 
 document.querySelector('#briefing-button').addEventListener('click', () => {
   document.querySelector('#research').scrollIntoView({ behavior: 'smooth' });

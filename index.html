@@ -3,82 +3,81 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AI Financial Advisor</title>
+  <meta name="description" content="FinRAG is a grounded financial research workspace for faster investment decisions.">
+  <title>FinRAG | Financial Intelligence Workspace</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="app-shell">
-    <div class="market-ticker" aria-label="Market summary">
-      <div class="ticker-track">
-        <span>COMP <strong>16,589.72</strong> <em class="down">-45.31 (-0.27%)</em></span>
-        <span>DJIA <strong>39,118.86</strong> <em class="up">+134.21 (+0.34%)</em></span>
-        <span>SPX <strong>5,287.43</strong> <em class="up">+22.14 (+0.42%)</em></span>
-        <span>VIX <strong>14.82</strong> <em class="up">-0.31 (-2.05%)</em></span>
-        <span>BTC <strong>67,430.00</strong> <em class="up">+1,240.00 (+1.87%)</em></span>
+  <div class="app-layout">
+    <aside class="sidebar" id="sidebar">
+      <div class="brand"><span class="brand-mark">F</span><span>Fin<span>RAG</span></span></div>
+      <div class="workspace-label">Workspace</div>
+      <nav class="main-nav" aria-label="Main navigation">
+        <a class="nav-item active" href="#overview"><span class="nav-icon">◈</span>Overview</a>
+        <a class="nav-item" href="#research"><span class="nav-icon">⌕</span>Research</a>
+        <a class="nav-item" href="#watchlist"><span class="nav-icon">☆</span>Watchlist <span class="nav-count">12</span></a>
+        <a class="nav-item" href="#briefings"><span class="nav-icon">▤</span>Briefings</a>
+      </nav>
+      <div class="workspace-label">Your tools</div>
+      <nav class="main-nav" aria-label="Tools navigation">
+        <a class="nav-item" href="#filings"><span class="nav-icon">▥</span>SEC filings</a>
+        <a class="nav-item" href="#market"><span class="nav-icon">⌁</span>Market data</a>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="data-status"><span class="status-dot"></span><div><strong>Data is live</strong><small>Updated just now</small></div></div>
+        <a class="nav-item" href="#settings"><span class="nav-icon">⚙</span>Settings</a>
+        <div class="profile"><span class="avatar">AK</span><div><strong>Akash Kumar</strong><small>Personal workspace</small></div><span class="more">•••</span></div>
       </div>
-    </div>
+    </aside>
 
-    <header class="topbar">
-      <button class="icon-button" aria-label="Open menu"><span></span><span></span><span></span></button>
-      <div class="date"><span class="clock">◷</span> Fri, Aug 28 11:56 AM</div>
-      <div class="topbar-actions">
-        <button class="icon-button notification" aria-label="Notifications">♧<b></b></button>
-        <div class="avatar">FI</div>
-      </div>
-    </header>
+    <div class="page-shell">
+      <header class="topbar">
+        <button class="mobile-menu" id="menu-toggle" aria-label="Open navigation">☰</button>
+        <div class="breadcrumbs"><span>Workspace</span><b>/</b><strong>Overview</strong></div>
+        <div class="topbar-actions"><button class="search-trigger" aria-label="Search workspace">⌕ <span>Search workspace</span><kbd>⌘ K</kbd></button><button class="bell" aria-label="Notifications">♧<i></i></button></div>
+      </header>
 
-    <main>
-      <section class="intro">
-        <div>
-          <h1>AI Financial Advisor</h1>
-          <p>Ask any investment question — the AI searches live data, SEC filings, analyst<br class="desktop-only"> research, and regulations to answer.</p>
-        </div>
-        <button class="help" aria-label="Help">?</button>
-      </section>
+      <main id="overview">
+        <section class="welcome-row">
+          <div><p class="eyebrow">FRIDAY, AUGUST 28, 2026</p><h1>Good morning, Akash<span>.</span></h1><p class="lede">Your market intelligence, in one considered view.</p></div>
+          <button class="outline-button" id="briefing-button"><span>＋</span> New briefing</button>
+        </section>
 
-      <section class="advisor-panel">
-        <div class="panel-heading">
-          <div>
-            <h2>FinRAG <span>AI Advisor</span></h2>
-            <p>Local RAG engine · Market Data + SEC + Analyst + Regulatory</p>
+        <section class="stats-grid" aria-label="Portfolio overview">
+          <article class="stat-card primary-stat"><div class="card-label">Portfolio value <span class="info">i</span></div><strong>$248,390<span>.42</span></strong><div class="stat-foot"><span class="positive">↗ $4,821.60 (1.98%)</span><small>Today</small></div><div class="sparkline teal-line"></div></article>
+          <article class="stat-card"><div class="card-label">S&amp;P 500 <span class="market-live">LIVE</span></div><strong>5,287<span>.43</span></strong><div class="stat-foot"><span class="positive">+0.42%</span><small>Today</small></div><div class="sparkline green-line"></div></article>
+          <article class="stat-card"><div class="card-label">Market sentiment <span class="info">i</span></div><strong class="sentiment">Bullish</strong><div class="stat-foot"><span class="positive">+8 pts</span><small>vs last week</small></div><div class="sentiment-bar"><i></i></div></article>
+          <article class="stat-card"><div class="card-label">Research credits</div><strong>84<span class="credits"> / 100</span></strong><div class="stat-foot"><span class="neutral">16 remaining</span><small>Resets in 12 days</small></div><div class="credit-bar"><i></i></div></article>
+        </section>
+
+        <section class="content-grid">
+          <div class="primary-column">
+            <article class="research-card" id="research">
+              <div class="section-heading"><div><p class="eyebrow">GROUNDED RESEARCH</p><h2>What are you looking into?</h2></div><span class="live-badge"><i></i> AI engine ready</span></div>
+              <p class="section-copy">Ask about a company, sector, filing, or macro trend. FinRAG searches market data, SEC documents, analyst research, and regulation before it answers.</p>
+              <form id="ask-form" class="research-form"><textarea id="question" rows="3" placeholder="e.g. Is NVIDIA's growth sustainable at its current valuation?"></textarea><div class="form-footer"><span class="source-note">⌁ 4 live sources enabled</span><button type="submit" class="primary-button">Analyze question <span>↗</span></button></div></form>
+              <div class="suggestion-row"><span>Try asking</span><button>Compare Apple and Microsoft margins</button><button>What moved markets today?</button><button>Read Tesla's latest filing</button></div>
+              <div id="answer" class="answer" hidden></div>
+            </article>
+
+            <div class="lower-grid">
+              <article class="activity-card" id="briefings"><div class="section-heading compact"><div><p class="eyebrow">RECENT RESEARCH</p><h2>Continue where you left off</h2></div><a href="#research">View all <span>→</span></a></div><div class="research-list"><button class="research-row"><span class="row-icon blue">↗</span><span><strong>Is NVIDIA a good investment right now?</strong><small>Equities · 8 min ago</small></span><span class="row-arrow">→</span></button><button class="research-row"><span class="row-icon orange">▥</span><span><strong>Apple's latest SEC filing, explained</strong><small>Filings · Yesterday</small></span><span class="row-arrow">→</span></button><button class="research-row"><span class="row-icon violet">◌</span><span><strong>How rates are affecting technology</strong><small>Macro · Aug 26, 2026</small></span><span class="row-arrow">→</span></button></div></article>
+              <article class="insight-card"><div class="section-heading compact"><div><p class="eyebrow">TODAY'S SIGNAL</p><h2>One thing to know</h2></div><span class="signal-icon">✦</span></div><p class="insight-text">Technology is leading today's advance, while defensive sectors lag as treasury yields ease.</p><div class="insight-meta"><span>Market pulse</span><span>11:42 AM</span></div></article>
+            </div>
           </div>
-          <div class="source-badges">
-            <span>Live Market Data</span><span>SEC Filings</span><span>Analyst Reports</span><span>Regulatory Updates</span>
-          </div>
-        </div>
 
-        <div class="question-area">
-          <h3>What would you like to know?</h3>
-          <p class="question-note">Ask any question about stocks, funds, or the economy in plain English. The AI<br class="desktop-only"> searches live market data, SEC documents, analyst research, and regulatory news to answer.</p>
-          <form class="ask-form" id="ask-form">
-            <textarea id="question" rows="3" placeholder="Type your investment question here..."></textarea>
-            <button type="submit" class="ask-button">Ask advisor <span>↗</span></button>
-          </form>
-          <div class="examples" aria-label="Example questions">
-            <button>Is NVIDIA a good investment right now?</button>
-            <button>What has Apple recently reported to the SEC?</button>
-            <button>What new rules should tech investors know about?</button>
-            <button>How is the S&amp;P 500 performing today?</button>
-            <button>What do analysts think about Tesla's stock price?</button>
-            <button>How does the Fed's interest rate policy affect my portfolio?</button>
-          </div>
-          <p class="disclaimer">AI analysis is for informational purposes only and does not constitute financial advice.</p>
-          <div class="answer" id="answer" hidden></div>
-        </div>
-      </section>
-    </main>
-
-    <div class="bottom-ticker" aria-label="Watchlist">
-      <span>AAPL <strong>189.30</strong> <em class="up">+2.41 (+1.29%)</em></span>
-      <span>MSFT <strong>415.52</strong> <em class="down">-1.23 (-0.30%)</em></span>
-      <span>NVDA <strong>875.40</strong> <em class="up">+31.22 (+3.70%)</em></span>
-      <span>GOOGL <strong>175.85</strong> <em class="up">+0.92 (+0.53%)</em></span>
-      <span>AMZN <strong>201.41</strong> <em class="up">+1.05 (+0.52%)</em></span>
-    </div>
-  </div>
-  <script src="script.js"></script>
-</body>
-</html>
+          <aside class="right-column" id="watchlist">
+            <article class="watchlist-card"><div class="section-heading compact"><div><p class="eyebrow">YOUR WATCHLIST</p><h2>Market pulse</h2></div><button class="circle-button" aria-label="Add to watchlist">＋</button></div><div class="watch-tabs"><button class="active">Stocks</button><button>ETFs</button><button>Crypto</button></div><div class="watch-items"><div class="watch-item"><span class="ticker-logo apple">A</span><span class="watch-name"><strong>Apple</strong><small>AAPL</small></span><strong class="watch-price">189.30</strong><span class="watch-change positive">+1.29%</span></div><div class="watch-item"><span class="ticker-logo nvidia">N</span><span class="watch-name"><strong>NVIDIA</strong><small>NVDA</small></span><strong class="watch-price">875.40</strong><span class="watch-change positive">+3.70%</span></div><div class="watch-item"><span class="ticker-logo microsoft">M</span><span class="watch-name"><strong>Microsoft</strong><small>MSFT</small></span><strong class="watch-price">415.52</strong><span class="watch-change negative">−0.30%</span></div><div class="watch-item"><span class="ticker-logo tesla">T</span><span class="watch-name"><strong>Tesla</strong><small>TSLA</small></span><strong class="watch-price">212.49</strong><span class="watch-change negative">−1.14%</span></div></div><button class="watch-footer">Open full watchlist <span>→</span></button></article>
++            <article class="source-card"><div class="source-top"><span class="shield">✓</span><div><strong>Trusted sources</strong><small>Information you can trace</small></div></div><div class="source-list"><span><i class="source-dot teal"></i>Market data</span><span><i class="source-dot blue-dot"></i>SEC filings</span><span><i class="source-dot orange-dot"></i>Analyst research</span><span><i class="source-dot purple-dot"></i>Regulatory news</span></div><a href="#filings">Manage sources <span>→</span></a></article>
++          </aside>
++        </section>
++      </main>
++      <footer class="footer"><span>FinRAG Intelligence</span><span>For informational purposes only. Not financial advice.</span><span>v1.0.0</span></footer>
++    </div>
++  </div>
++  <script src="script.js"></script>
++</body>
++</html>

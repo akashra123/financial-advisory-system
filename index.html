@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Financial Advisor</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <div class="market-ticker" aria-label="Market summary">
+      <div class="ticker-track">
+        <span>COMP <strong>16,589.72</strong> <em class="down">-45.31 (-0.27%)</em></span>
+        <span>DJIA <strong>39,118.86</strong> <em class="up">+134.21 (+0.34%)</em></span>
+        <span>SPX <strong>5,287.43</strong> <em class="up">+22.14 (+0.42%)</em></span>
+        <span>VIX <strong>14.82</strong> <em class="up">-0.31 (-2.05%)</em></span>
+        <span>BTC <strong>67,430.00</strong> <em class="up">+1,240.00 (+1.87%)</em></span>
+      </div>
+    </div>
+
+    <header class="topbar">
+      <button class="icon-button" aria-label="Open menu"><span></span><span></span><span></span></button>
+      <div class="date"><span class="clock">◷</span> Fri, Aug 28 11:56 AM</div>
+      <div class="topbar-actions">
+        <button class="icon-button notification" aria-label="Notifications">♧<b></b></button>
+        <div class="avatar">FI</div>
+      </div>
+    </header>
+
+    <main>
+      <section class="intro">
+        <div>
+          <h1>AI Financial Advisor</h1>
+          <p>Ask any investment question — the AI searches live data, SEC filings, analyst<br class="desktop-only"> research, and regulations to answer.</p>
+        </div>
+        <button class="help" aria-label="Help">?</button>
+      </section>
+
+      <section class="advisor-panel">
+        <div class="panel-heading">
+          <div>
+            <h2>FinRAG <span>AI Advisor</span></h2>
+            <p>Local RAG engine · Market Data + SEC + Analyst + Regulatory</p>
+          </div>
+          <div class="source-badges">
+            <span>Live Market Data</span><span>SEC Filings</span><span>Analyst Reports</span><span>Regulatory Updates</span>
+          </div>
+        </div>
+
+        <div class="question-area">
+          <h3>What would you like to know?</h3>
+          <p class="question-note">Ask any question about stocks, funds, or the economy in plain English. The AI<br class="desktop-only"> searches live market data, SEC documents, analyst research, and regulatory news to answer.</p>
+          <form class="ask-form" id="ask-form">
+            <textarea id="question" rows="3" placeholder="Type your investment question here..."></textarea>
+            <button type="submit" class="ask-button">Ask advisor <span>↗</span></button>
+          </form>
+          <div class="examples" aria-label="Example questions">
+            <button>Is NVIDIA a good investment right now?</button>
+            <button>What has Apple recently reported to the SEC?</button>
+            <button>What new rules should tech investors know about?</button>
+            <button>How is the S&amp;P 500 performing today?</button>
+            <button>What do analysts think about Tesla's stock price?</button>
+            <button>How does the Fed's interest rate policy affect my portfolio?</button>
+          </div>
+          <p class="disclaimer">AI analysis is for informational purposes only and does not constitute financial advice.</p>
+          <div class="answer" id="answer" hidden></div>
+        </div>
+      </section>
+    </main>
+
+    <div class="bottom-ticker" aria-label="Watchlist">
+      <span>AAPL <strong>189.30</strong> <em class="up">+2.41 (+1.29%)</em></span>
+      <span>MSFT <strong>415.52</strong> <em class="down">-1.23 (-0.30%)</em></span>
+      <span>NVDA <strong>875.40</strong> <em class="up">+31.22 (+3.70%)</em></span>
+      <span>GOOGL <strong>175.85</strong> <em class="up">+0.92 (+0.53%)</em></span>
+      <span>AMZN <strong>201.41</strong> <em class="up">+1.05 (+0.52%)</em></span>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
